@@ -101,24 +101,37 @@ namespace ConsoleApplication1
             Console.WriteLine("Sistema com Banco de Dados");
             Console.WriteLine("------------------------");
 
+            BancoDeDados Db = new BancoDeDados();
+
+            Db.abrir();
+
+            Db.preparar("select * from usuario");
+
+            MySql.Data.MySqlClient.MySqlDataReader usuario = Db.executar();
+
+            while (usuario.Read())
+            {
+                Console.WriteLine(usuario["id"].ToString());
+                Console.WriteLine(usuario["nome"].ToString());
+                Console.WriteLine(usuario["email"].ToString());
+                Console.WriteLine(usuario["senha"].ToString());
+
+            }
+
+            Db.fechar();
+
+            
 
             string opcao = "";
-            bool isConn = false;
              
             do
             {
-                
-
-                
-                
-                if (isConn)
-                {
-                    Console.WriteLine("Escolha a opção ou EXIT para sair.");
-                    Console.WriteLine("I - Inserir");
-                    Console.WriteLine("A - Atualizar");
-                    Console.WriteLine("------------------------");
-                    opcao = Console.ReadLine();
-                }
+                Console.WriteLine("Escolha a opção ou EXIT para sair.");
+                Console.WriteLine("I - Inserir");
+                Console.WriteLine("A - Atualizar");
+                Console.WriteLine("------------------------");
+                opcao = Console.ReadLine();
+              
 
                 switch (opcao)
                 {
