@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
-using MySql.Data.MySqlClient;
+
 
 namespace ConsoleApplication1
 {
@@ -107,19 +107,9 @@ namespace ConsoleApplication1
              
             do
             {
-                MySqlConnection conn = new MySqlConnection("server=127.0.0.1; userid=root; password=96342292; database=teste");
+                
 
-                try
-                {
-                    conn.Open();
-                    isConn = true;
-
-                } catch (MySqlException ex)
-                {
-                    Console.WriteLine(ex);
-                    Console.ReadLine();
-                    opcao = "EXIT";
-                }
+                
                 
                 if (isConn)
                 {
